@@ -1,0 +1,32 @@
+.boot-screen{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 42%,#123044 0%,#070d16 48%,#04070c 100%);color:#e9fbff;transition:opacity .55s ease;pointer-events:all;overflow:hidden}
+.boot-screen:before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(57,231,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(57,231,255,.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.boot-screen:after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px);pointer-events:none;mix-blend-mode:multiply}
+.boot-fading{opacity:0;pointer-events:none}
+.boot-frame{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px;min-width:340px;padding:28px 36px 24px;background:linear-gradient(180deg,rgba(12,28,40,.92),rgba(5,10,16,.94));border:2px solid #39e7ff;box-shadow:inset 0 0 0 1px rgba(255,79,216,.7),0 0 28px rgba(57,231,255,.28),0 0 64px rgba(255,79,216,.12)}
+.boot-frame:before,.boot-frame:after{content:'';position:absolute;width:14px;height:14px;border:2px solid #ff4fd8;pointer-events:none}
+.boot-frame:before{top:-2px;left:-2px;border-right:0;border-bottom:0}
+.boot-frame:after{right:-2px;bottom:-2px;border-left:0;border-top:0}
+.boot-brand{margin:0;font-family:var(--heading),'Press Start 2P',monospace;font-size:13px;letter-spacing:.2em;color:#e9fbff;text-shadow:0 0 12px rgba(57,231,255,.8)}
+.boot-stage{position:relative;display:grid;place-items:center;height:156px}
+.boot-laptop{width:188px;animation:boot-bob 1.9s ease-in-out infinite;filter:drop-shadow(0 0 14px rgba(57,231,255,.4))}
+.boot-lid{height:102px;padding:8px;background:#0c1c28;border:3px solid #39e7ff;box-shadow:inset 0 0 0 3px #071018,0 0 18px rgba(57,231,255,.35)}
+.boot-glass{display:flex;justify-content:space-between;height:100%;padding:3px 4px;overflow:hidden;background:#020806;box-shadow:inset 0 0 16px rgba(80,255,140,.28)}
+.boot-col{display:block;flex:0 0 auto;font-family:'MS Gothic','Yu Gothic',Consolas,monospace;font-size:9px;line-height:1.05;color:#3dff78;text-shadow:0 0 6px rgba(61,255,120,.85);animation:matrix-fall linear infinite;white-space:pre}
+.boot-col:nth-child(3n){color:#d8ffe6}
+.boot-col:nth-child(4n){color:#39e7ff;text-shadow:0 0 6px rgba(57,231,255,.8)}
+.boot-hinge{height:4px;margin:0 14px;background:#39e7ff;box-shadow:0 0 8px #39e7ff}
+.boot-base{position:relative;display:flex;align-items:center;justify-content:center;gap:4px;height:28px;margin:0 -10px;background:linear-gradient(180deg,#163044,#0a1620);border:3px solid #39e7ff;border-top:0}
+.boot-base>i{width:8px;height:5px;background:#071018;box-shadow:0 0 0 1px rgba(57,231,255,.45)}
+.boot-base>i.is-hot{background:#ff4fd8;box-shadow:0 0 6px #ff4fd8}
+.boot-base>b{position:absolute;left:50%;bottom:4px;width:22px;height:4px;transform:translateX(-50%);background:#071018;box-shadow:inset 0 0 0 1px rgba(57,231,255,.4)}
+.boot-shadow{position:absolute;bottom:2px;width:150px;height:8px;background:#39e7ff;border-radius:50%;opacity:.28;filter:blur(1px);animation:boot-shadow 1.9s ease-in-out infinite}
+.boot-text{font-family:var(--pixel),monospace;font-size:11px;letter-spacing:.16em;color:#39e7ff;margin:0;text-shadow:0 0 10px rgba(57,231,255,.75)}
+.boot-bar{width:300px;height:14px;border:2px solid #39e7ff;background:#070d16;box-shadow:inset 0 0 0 1px rgba(255,79,216,.65),0 0 16px rgba(57,231,255,.35);position:relative;overflow:hidden}
+.boot-bar>i{display:block;height:100%;background:linear-gradient(90deg,#16344a,#39e7ff);box-shadow:0 0 12px #39e7ff;transition:width .12s linear}
+.boot-bar:after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(4,8,12,.45) 8px 10px);pointer-events:none}
+.boot-pct{margin:0;font-family:var(--pixel),monospace;font-size:10px;letter-spacing:.22em;color:#ff4fd8;text-shadow:0 0 8px rgba(255,79,216,.7)}
+@keyframes boot-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes boot-shadow{0%,100%{transform:scaleX(1);opacity:.28}50%{transform:scaleX(.78);opacity:.14}}
+@keyframes matrix-fall{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.boot-laptop,.boot-shadow,.boot-col{animation:none}}
+@media(max-width:600px){.boot-frame{min-width:0;width:min(92vw,340px);padding:22px 18px 18px}.boot-brand{font-size:10px}.boot-bar{width:100%}}
